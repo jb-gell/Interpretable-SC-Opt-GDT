@@ -11,6 +11,15 @@ from collections import Counter
 from graphviz import Digraph, Source
 
 
+def standardise_inputs(inputs):
+    mean_vals = np.mean(inputs, axis=0)
+    std_dev_vals = np.std(inputs, axis=0)
+    
+    standardized_inputs = (inputs - mean_vals) / std_dev_vals
+    
+    return standardized_inputs, mean_vals, std_dev_vals
+
+
 def get_all_split_features(node, feature_list=None):    
     if node is None:
         return
