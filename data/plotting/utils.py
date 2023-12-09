@@ -56,7 +56,7 @@ def plot_quad_plot(fix_what, what_val, source, var_list, letter):
             plt.xlabel('Generation Number', fontsize=16, fontname= 'Times New Roman')
             plt.ylabel('Total reward', fontsize=16, fontname= 'Times New Roman')
             #plt.title(f'Best rewards for different max depth values and GA strategy {what_val}')
-            plt.ylim(bottom=-2)
+            plt.ylim(bottom=-2, top=1.5)
             
             fig.suptitle(f'({letter}) {what_val}', y=-0.01, fontname= 'Times New Roman', weight ='bold', fontsize=16)
             
