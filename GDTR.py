@@ -30,7 +30,7 @@ class GeneticDecisionTreeRegressor:
         """
         if depth == self.max_depth or all(len(set(y[:, i])) == 1 for i in range(self.n_outputs)):
             # If we reach the maximum depth or if all target values are the same, stop splitting (it's a leaf)
-            self.value = np.mean(y, axis=0)
+            self.value = np.round(np.mean(y, axis=0))
             return
 
         # Find the best split based on a simple mean squared error criterion
@@ -59,7 +59,7 @@ class GeneticDecisionTreeRegressor:
 
         if best_split_feature is None:
             print('Warning: no valid split. Setting the node as a leaf.')
-            self.value = np.mean(y, axis=0)
+            self.value = np.round(np.mean(y, axis=0))
             return
 
         self.feature = best_split_feature
